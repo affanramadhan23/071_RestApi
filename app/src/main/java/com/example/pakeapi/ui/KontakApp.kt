@@ -20,8 +20,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pakeapi.R
-import com.example.pakeapi.ui.home.screen.HomeScreen
 import com.example.pakeapi.ui.home.viewmodel.HomeViewModel
+import com.example.pakeapi.ui.home.viewmodel.PenyediaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,7 +38,7 @@ fun KontakApp(
                 .fillMaxSize()
                 .padding(it)
         ) {
-            HomeScreen(kontakUIState = homeViewModel.kontakUIState, retryAction = homeViewModel::getKontak)
+
         }
     }
 }
