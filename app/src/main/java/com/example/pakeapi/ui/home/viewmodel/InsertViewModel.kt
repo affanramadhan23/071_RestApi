@@ -9,22 +9,24 @@ import com.example.pakeapi.model.Kontak
 import com.example.pakeapi.repository.KontakRepository
 import kotlinx.coroutines.launch
 
-class InsertViewModel(private val kontakRepository: KontakRepository) : ViewModel(){
+class InsertViewModel(private val kontakRepository: KontakRepository) : ViewModel() {
     var insertkontakState by mutableStateOf(InsertUiState())
         private set
 
-    fun updateInsertKontakState(insertUiEvent: InsertUiEvent){
+    fun updateInsertKontakState(insertUiEvent: InsertUiEvent) {
         insertkontakState = InsertUiState(insertUiEvent = insertUiEvent)
     }
-    suspend fun insertKontak(){
+
+    suspend fun insertKontak() {
         viewModelScope.launch {
             try {
                 kontakRepository.insertKontak(insertkontakState.insertUiEvent.toKontak())
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
+}
 
 data class InsertUiEvent(
     val id: Int = 0,
