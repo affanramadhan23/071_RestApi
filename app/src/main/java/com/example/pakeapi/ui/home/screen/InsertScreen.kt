@@ -81,4 +81,11 @@ fun EntryKontakBody(
     onSiswaValueChange: (InsertViewModel.InsertUiEvent) -> Unit,
     noSaveClick: () -> Unit,
     modifier: Modifier = Modifier
-){}
+){
+    Column (
+        verticalArrangement = Arrangement.spacedBy(18.dp),
+        modifier = modifier.padding(12.dp)
+    ){
+
+    }
+}
