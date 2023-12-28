@@ -74,3 +74,11 @@ fun FormInputSiswa(
         )
     }
 }
+
+@Composable
+fun EntryKontakBody(
+    insertUiState: InsertViewModel.InsertUiState,
+    onSiswaValueChange: (InsertViewModel.InsertUiEvent) -> Unit,
+    noSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+){}
