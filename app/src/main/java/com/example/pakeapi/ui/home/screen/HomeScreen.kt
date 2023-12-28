@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -123,7 +124,7 @@ fun KontakCard(
     kontak: Kontak,
     onDeleteClick: (Kontak) -> Unit = {},
     modifier: Modifier = Modifier
-){
+) {
     Card(
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
@@ -133,9 +134,9 @@ fun KontakCard(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Row (
+            Row(
                 modifier = Modifier.fillMaxWidth(),
-            ){
+            ) {
                 Text(
                     text = kontak.nama,
                     style = MaterialTheme.typography.titleLarge
@@ -152,16 +153,27 @@ fun KontakCard(
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            Text(
-                text = kontak.alamat,
-                style = MaterialTheme.typography.titleMedium
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = kontak.alamat,
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(Modifier.weight(1f))
+                IconButton(onClick = { onDeleteClick(kontak) }) {
+                    Icon(imageVector = Icons.Default.Delete, contentDescription = null)
+                }
+            }
         }
     }
+}
     object DestinasiHome: DestinasiNavigasi {
         override val route = "home"
         override val titleRes = "Kontak"
     }
+
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun HomeScreen(
@@ -210,7 +222,5 @@ fun KontakCard(
             )
         }
     }
-}
-
 
 
