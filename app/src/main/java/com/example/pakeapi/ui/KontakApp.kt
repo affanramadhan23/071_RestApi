@@ -20,6 +20,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pakeapi.R
+import com.example.pakeapi.navigation.PengelolaHalaman
 import com.example.pakeapi.ui.home.viewmodel.HomeViewModel
 import com.example.pakeapi.ui.home.viewmodel.PenyediaViewModel
 
@@ -38,7 +39,7 @@ fun KontakApp(
                 .fillMaxSize()
                 .padding(it)
         ) {
-
+            PengelolaHalaman()
         }
     }
 }
